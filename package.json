@@ -2,18 +2,25 @@
   "name": "nestjs-react-mono",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "build": "dotenv -- turbo build",
+    "dev": "dotenv -- turbo dev",
+    "start": "dotenv -- turbo start:prod",
+    "preview": "dotenv -- turbo preview",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:migrate": "dotenv -- turbo db:migrate",
+    "db:generate": "dotenv -- turbo db:generate",
+    "db:studio": "dotenv -- turbo db:studio",
+    "ui-add": "turbo ui-add"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "dotenv-cli": "^7.4.2",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@9.1.0",
   "engines": {
     "node": ">=18"
   }

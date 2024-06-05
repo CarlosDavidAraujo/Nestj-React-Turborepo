@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  client:
+    container_name: client
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    env_file:
+      - ".env"
+    networks:
+      - app_network
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    restart: always
+    ports:
+      - 3003:3003
+    env_file:
+      - ".env"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
